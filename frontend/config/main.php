@@ -14,7 +14,8 @@ return [
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableSession' => false,
+            'loginUrl' => null,
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
