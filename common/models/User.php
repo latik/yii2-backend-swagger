@@ -58,6 +58,19 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+    * @inheritdoc
+    */
+    public function fields()
+    {
+        $fields = parent::fields();
+
+        // remove fields that contain sensitive information
+        unset($fields['auth_key'], $fields['password_hash'], $fields['password_reset_token']);
+
+        return $fields;
+    }
+
+    /**
      * @inheritdoc
      */
     public static function findIdentity($id)
